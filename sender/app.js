@@ -1,15 +1,24 @@
 #!/usr/bin/env node
 
 var amqp = require('amqplib');
+var random = require('randomstring');
 
 amqp.connect('amqp://rabbitmq:rabbitmq@0.0.0.0')
 .then(function(conn) {
   return conn.createChannel();
 })
 .then(function(ch) {
-  var msg = '{"to" : "destinatario@teste.com", "body": "Olá!"}';
+
   ch.assertQueue('email', {durable: false}); //Cria uma Queue Caso não exista
-  ch.sendToQueue('email', Buffer(msg)); //Envia uma mensagem para a Queue
-  console.log("Mensagem enviada");
-  return;
+
+  setInterval(function() {
+    var msg = {};
+    msg.to = "destinatario@teste.com";
+    msg.body = random.generate(10);
+    message = JSON.stringify(msg);
+    
+    //Envia uma mensagem para a Queue em forma de Buffer
+    ch.sendToQueue('email', Buffer(message));
+    console.log("Enviando mensagem: " + message);
+  }, 500);
 });
