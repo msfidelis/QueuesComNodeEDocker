@@ -1,0 +1,15 @@
+{
+  "name": "sender",
+  "version": "1.0.0",
+  "description": "Sender de mensagens pro Queue Server",
+  "main": "sender.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "author": "Matheus Fidelis",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "randomstring": "^1.1.5"
+  }
+}

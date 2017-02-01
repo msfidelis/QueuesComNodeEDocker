@@ -10,19 +10,3 @@ services:
     ports:
       - "8080:15672"
       - "5672:5672"
-
-  sender:
-    build: ./sender
-    links:
-      - rabbitmq
-
-    depends_on:
-      - rabbitmq
-
-  consumer:
-    build: ./consumer
-    links:
-      - rabbitmq
-    depends_on:
-      - rabbitmq
-      - sender
