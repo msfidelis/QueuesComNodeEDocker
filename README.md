@@ -1,4 +1,4 @@
-# Escalando e Consumingo Queues com NodeJS, Docker e RabbitMQ
+# Escalando e Consumindo Queues com NodeJS, Docker e RabbitMQ
 Escalando e Consumindo Filas Assincronas com Docker e NodeJS
 
 #Apresentação realizada em: 
