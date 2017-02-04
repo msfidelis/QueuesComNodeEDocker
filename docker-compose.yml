@@ -13,6 +13,7 @@ services:
 
   sender:
     build: ./sender
+    restart: always
     links:
       - rabbitmq
 
@@ -21,6 +22,7 @@ services:
 
   consumer:
     build: ./consumer
+    restart: always
     links:
       - rabbitmq
     depends_on:
